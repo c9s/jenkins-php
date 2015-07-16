@@ -1,4 +1,5 @@
 analysis-core:latest
+token-macro:latest
 checkstyle:latest
 cloverphp:latest
 crap4j:latest

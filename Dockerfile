@@ -19,6 +19,7 @@ RUN apt-get update \
   && apt-get -qqy install sudo \
   && apt-get -qqy install ant ant-contrib sqlite3 wget \
   && apt-get -qqy install \
+    --ignore-missing \
     php5 \
     php5-dev \
     php5-cli \
@@ -40,9 +41,9 @@ RUN apt-get update \
     libmcrypt4 libmcrypt-dev \
     libpcre3-dev libpcre++-dev
 
-RUN apt-get clean -y \
-  && apt-get autoclean -y \
-  && apt-get autoremove -y \
+RUN apt-get -q clean -y \
+  && apt-get -q autoclean -y \
+  && apt-get -q autoremove -y \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
   && rm -rf /var/lib/apt/lists/*
 
@@ -56,7 +57,8 @@ RUN  mkdir -p /usr/bin \
   && wget -q -O /usr/bin/phpcpd https://phar.phpunit.de/phpcpd.phar && chmod +x /usr/bin/phpcpd \
   && wget -q -O /usr/bin/phploc https://phar.phpunit.de/phploc.phar && chmod +x /usr/bin/phploc \
   && wget -q -O /usr/bin/phptok https://phar.phpunit.de/phptok.phar && chmod +x /usr/bin/phptok \
-  && wget -q -O /usr/bin/box https://github.com/box-project/box2/releases/download/2.5.2/box-2.5.2.phar && chmod +x /usr/bin/box
+  && wget -q -O /usr/bin/box https://github.com/box-project/box2/releases/download/2.5.2/box-2.5.2.phar && chmod +x /usr/bin/box \
+  && wget -q -O /usr/bin/phpbrew https://github.com/phpbrew/phpbrew/raw/master/phpbrew && chmod +x /usr/bin/phpbrew
 
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 

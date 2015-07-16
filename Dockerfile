@@ -10,9 +10,9 @@ ENV DEBIAN_FRONTEND noninteractive
 USER root
 
 # Add source.list
-RUN echo "deb-src http://httpredir.debian.org/debian jessie main" > /etc/apt/sources.list
-RUN echo "deb-src http://httpredir.debian.org/debian jessie-updates main" > /etc/apt/sources.list
-RUN echo "deb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+RUN echo "deb-src http://httpredir.debian.org/debian jessie main" >> /etc/apt/sources.list
+RUN echo "deb-src http://httpredir.debian.org/debian jessie-updates main" >> /etc/apt/sources.list
+RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
 
 # Basic tools
 RUN apt-get update \

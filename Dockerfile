@@ -39,9 +39,8 @@ RUN apt-get update \
     libicu-dev \
     libmhash2 libmhash-dev \
     libmcrypt4 libmcrypt-dev \
-    libpcre3-dev libpcre++-dev
-
-RUN apt-get -q clean -y \
+    libpcre3-dev libpcre++-dev \
+  && apt-get -q clean -y \
   && apt-get -q autoclean -y \
   && apt-get -q autoremove -y \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ \

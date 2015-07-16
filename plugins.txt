@@ -1,3 +1,4 @@
+analysis-core:latest
 checkstyle:latest
 cloverphp:latest
 crap4j:latest

@@ -3,7 +3,7 @@ FROM jenkins:1.609.1
 MAINTAINER Yo-An Lin "yoanlin93@gmail.com"
 MAINTAINER Azole Lai "azolelai@gmail.com"
 
-ENV JENKINS_HOME /var/jenkins_home
+# ENV JENKINS_HOME /var/jenkins_home
 ENV DEBIAN_FRONTEND noninteractive
 
 

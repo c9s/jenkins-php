@@ -69,10 +69,10 @@ USER jenkins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
-RUN cd $JENKINS_HOME/jobs
-    && mkdir php-template
-    && cd php-template
-    && wget https://raw.github.com/sebastianbergmann/php-jenkins-template/master/config.xml
-    && cd ..
-    && chown -R jenkins:jenkins php-template/
+# RUN cd $JENKINS_HOME/jobs \
+#     && mkdir php-template \
+#     && cd php-template \
+#     && wget https://raw.github.com/sebastianbergmann/php-jenkins-template/master/config.xml \
+#     && cd .. \
+#     && chown -R jenkins:jenkins php-template/
 

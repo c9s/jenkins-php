@@ -46,6 +46,7 @@ RUN apt-get update \
   && rm -rf /var/lib/{apt,dpkg,cache,log}/ \
   && rm -rf /var/lib/apt/lists/*
 
+
 # Install php tools
 RUN  mkdir -p /usr/bin \
   && wget -q -O /usr/bin/phpunit https://phar.phpunit.de/phpunit.phar && chmod +x /usr/bin/phpunit \
@@ -66,3 +67,11 @@ RUN echo "Asia/Taipei" > /etc/timezone && dpkg-reconfigure -f noninteractive tzd
 USER jenkins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
+
+RUN cd $JENKINS_HOME/jobs
+    && mkdir php-template
+    && cd php-template
+    && wget https://raw.github.com/sebastianbergmann/php-jenkins-template/master/config.xml
+    && cd ..
+    && chown -R jenkins:jenkins php-template/
+

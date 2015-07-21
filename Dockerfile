@@ -17,7 +17,7 @@ RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/so
 # Basic tools
 RUN apt-get update \
   && apt-get -qqy install sudo \
-  && apt-get -qqy install ant ant-contrib sqlite3 wget \
+  && apt-get -qqy install ant ant-contrib doxygen sqlite3 wget \
   && apt-get -qqy install \
     --ignore-missing \
     php5 \
